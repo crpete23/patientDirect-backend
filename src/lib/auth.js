@@ -37,10 +37,15 @@ async function isAuthorized (req, res, next) {
     const token = parseToken(authorization)
     const userId = token.sub.id
 
-    const boardId = req.params.boardId || req.params.id
-    const board = await db('boards').where({ id: boardId }).first()
-    if (board.user_id !== userId) {
-      const message = `You are not authorized to update this board`
+    const patient_id = req.params.patient_id
+    const patient = await db('patients_doctors').where({ patient_id })
+
+    const authorized = patient.find(ele => {
+      return ele.doctor_id === userId
+    })
+
+    if (!authorized) {
+      const message = `You are not authorized to access this patient`
       return next({ status: 401, error: message })
     }
 

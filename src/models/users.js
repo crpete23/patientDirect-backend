@@ -4,14 +4,14 @@ const bcrypt = require('bcryptjs')
 
 async function create ({ password, ...body }) {
   const hashed = await promisify(bcrypt.hash)(password, 8)
-  return db('users')
+  return db('doctors')
     .insert({ ...body, password: hashed })
     .returning('*')
     .then(([response]) => response)
 }
 
 function login ({ email, password }) {
-  return db('users')
+  return db('doctors')
     .where({ email })
     .then(async ([ user ]) => {
       if (!user) throw new Error()

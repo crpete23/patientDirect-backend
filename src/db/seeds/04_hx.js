@@ -21,7 +21,7 @@ exports.seed = function (knex, Promise) {
         ros: {
           constitutional: {
             fatigue: false, fever: false,
-            unintentionalWeightLostt: false
+            unintentionalWeightLoss: false
           },
           eyes: {
             eyePain: false,

@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const { PORT = 3210, NODE_ENV = 'development' } = process.env
+const { PORT = 3200, NODE_ENV = 'development' } = process.env
 
 if (NODE_ENV === 'development') {
   require('dotenv').load()
@@ -11,8 +11,7 @@ app.use(require('body-parser').json())
 app.use(require('cors')())
 
 app.use('/api/users', require('./routes/users'))
-app.use('/api/boards', require('./routes/boards'))
-app.use('/api/plants', require('./routes/plants'))
+app.use('/api/patients', require('./routes/patients'))
 
 app.use((req, res, next) => {
   const status = 404
