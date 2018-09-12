@@ -12,17 +12,17 @@ exports.seed = function (knex, Promise) {
           duration: 'two weeks',
           timing: 'constant',
           location: 'central-chest',
-          location-img: 'imgUrl',
+          location_img: 'imgUrl',
           alleviatingFactors: ["ice", "ibuprofen"],
           exacerbatingFactors: ["movement", "palpation"],
           context: 'all-day, no matter what',
           associatedSx: ['sob', 'headache']
-        }
+        },
         ros: {
           constitutional: {
             fatigue: false, fever: false,
             unintentionalWeightLostt: false
-          }
+          },
           eyes: {
             eyePain: false,
             blurryVision: false
