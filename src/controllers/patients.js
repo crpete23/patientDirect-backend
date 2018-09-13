@@ -20,12 +20,12 @@ async function getPtHx(req,res,next){
   res.json({response})
 }
 
-async function create(req, res, next) {
+async function createPt(req, res, next) {
   try {
     const token = parseToken(req.headers.authorization)
     const userId = token.sub.id
 
-    const response = await model.create({ ...req.body
+    const response = await model.createPt({ ...req.body
     }, userId)
 
     res.status(201).json({[resourceName]: response})
@@ -34,8 +34,38 @@ async function create(req, res, next) {
   }
 }
 
+async function updatePt(req, res, next){
+  const patient_id = req.params.patient_id
+  const response = await model.updatePt(patient_id, req.body)
+
+  res.json({[resourceName]: response})
+}
+
+async function deletePt(req, res, next){
+  const id = req.params.patient_id
+  const response = await model.deletePt(id)
+
+  res.json({[resourceName]: response })
+}
+
+async function addPtToDoc(req, res, next){
+  try {
+    const patient_id = req.params.patient_id
+    const doctor_id = req.body.doctor_id
+
+    const response = await model.addPtToDoc({patient_id, doctor_id})
+
+    res.json({[resourceName]: response })
+  } catch (e) {
+    next({status:400, error: 'Duplicate request or unable to add patient to requested provider'})
+  }
+}
+
 module.exports = {
   index,
   getPtHx,
-  create
+  createPt,
+  updatePt,
+  deletePt,
+  addPtToDoc
 }
