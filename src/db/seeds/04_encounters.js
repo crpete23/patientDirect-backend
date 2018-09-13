@@ -2,10 +2,10 @@ const fs = require('fs')
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('hx').del()
+  return knex('encounters').del()
     .then(function () {
       // Inserts seed entries
-      return knex('hx').insert([{id:1, patient_id: 1, date: '08/30/2018', data:{
+      return knex('encounters').insert([{id:1, patient_id: 1, doctor_id: 1, date: '08/30/2018', time: '11:00AM', hx:{
          hpi:{
           cc: 'chest pain',
           quality: 'sharp',
@@ -68,6 +68,6 @@ exports.seed = function (knex, Promise) {
     }])
     })
     .then(function () {
-      return knex.raw(`SELECT setval('hx_id_seq', (SELECT MAX(id) FROM hx));`)
+      return knex.raw(`SELECT setval('encounters_id_seq', (SELECT MAX(id) FROM encounters));`)
     })
 }

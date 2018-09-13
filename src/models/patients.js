@@ -11,8 +11,8 @@ function get (userId) {
     })
 }
 
-function getHx(patient_id){
-  return db('hx')
+function getEncounters(patient_id){
+  return db('encounters')
     .where({patient_id})
 }
 
@@ -74,11 +74,25 @@ function addPtToDoc(body){
     })
   }
 
+  function getEncounter(patient_id, encounter_id){
+    return db('encounters')
+      .where({id: encounter_id})
+      .then(([encounter]) => {
+        console.log(encounter, patient_id, encounter.patient_id)
+        if(encounter.patient_id===patient_id){
+          return encounter
+        } else {
+          throw new Error()
+        }
+      })
+  }
+
 module.exports = {
   get,
-  getHx,
+  getEncounters,
   createPt,
   updatePt,
   deletePt,
-  addPtToDoc
+  addPtToDoc,
+  getEncounter
 }

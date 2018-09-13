@@ -17,12 +17,12 @@ async function index(req, res, next) {
   }
 }
 
-async function getPtHx(req,res,next){
+async function getEncounters(req,res,next){
   try{
     const patient_id = req.params.patient_id
 
-    const response = await model.getHx(patient_id)
-    res.status(200).json({response})
+    const response = await model.getEncounters(patient_id)
+    res.status(200).json({"encounters": response})
   } catch (e){
     next({status:400, error: `Unable to find specified patient's history`})
   }
@@ -77,11 +77,30 @@ async function addPtToDoc(req, res, next){
   }
 }
 
+async function getEncounter(req, res, next){
+  try{
+    const patient_id = parseInt(req.params.patient_id)
+    const encounter_id = req.params.encounter_id
+
+    const response = await model.getEncounter(patient_id, encounter_id)
+
+    res.status(200).json({"encounter": response})
+  } catch (e) {
+     next({status:400, error: `Unable to find specified patient's history`})
+  }
+}
+//
+// router.get('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.getEncounter)
+// router.post('/:patient_id/encounters', auth.isAuthorized, ctrl.createEncounter)
+// router.patch('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.updateEncounter)
+// router.delete('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.deleteEncounter)
+
 module.exports = {
   index,
-  getPtHx,
+  getEncounters,
   createPt,
   updatePt,
   deletePt,
-  addPtToDoc
+  addPtToDoc,
+  getEncounter
 }
