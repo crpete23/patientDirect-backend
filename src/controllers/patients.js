@@ -4,20 +4,28 @@ const {parseToken} = require('../lib/auth')
 const resourceName = 'patient'
 
 async function index(req, res, next) {
-  const token = parseToken(req.headers.authorization)
-  const userId = token.sub.id
+  try {
+    const token = parseToken(req.headers.authorization)
+    const userId = token.sub.id
 
-  const response = await model.get(userId)
-  res.json({
-    [plural(resourceName)]: response
-  })
+    const response = await model.get(userId)
+    res.status(200).json({
+      [plural(resourceName)]: response
+    })
+  } catch (e){
+    next({status:400, error: 'Unable to find your patients'})
+  }
 }
 
 async function getPtHx(req,res,next){
-  const patient_id = req.params.patient_id
+  try{
+    const patient_id = req.params.patient_id
 
-  const response = await model.getHx(patient_id)
-  res.json({response})
+    const response = await model.getHx(patient_id)
+    res.status(200).json({response})
+  } catch (e){
+    next({status:400, error: `Unable to find specified patient's history`})
+  }
 }
 
 async function createPt(req, res, next) {
@@ -35,17 +43,25 @@ async function createPt(req, res, next) {
 }
 
 async function updatePt(req, res, next){
-  const patient_id = req.params.patient_id
-  const response = await model.updatePt(patient_id, req.body)
+  try{
+    const patient_id = req.params.patient_id
+    const response = await model.updatePt(patient_id, req.body)
 
-  res.json({[resourceName]: response})
+    res.status(200).json({[resourceName]: response})
+  } catch (e){
+    next({status: 400, error: `Unable to update specified patient`})
+  }
 }
 
 async function deletePt(req, res, next){
-  const id = req.params.patient_id
-  const response = await model.deletePt(id)
+  try{
+    const id = req.params.patient_id
+    const response = await model.deletePt(id)
 
-  res.json({[resourceName]: response })
+    res.status(200).json({[resourceName]: response })
+  } catch (e){
+    next({status: 400, error: `Unable to delete specified patient`})
+  }
 }
 
 async function addPtToDoc(req, res, next){
@@ -55,7 +71,7 @@ async function addPtToDoc(req, res, next){
 
     const response = await model.addPtToDoc({patient_id, doctor_id})
 
-    res.json({[resourceName]: response })
+    res.status(200).json({[resourceName]: response })
   } catch (e) {
     next({status:400, error: 'Duplicate request or unable to add patient to requested provider'})
   }
