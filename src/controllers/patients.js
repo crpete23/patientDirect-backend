@@ -89,11 +89,54 @@ async function getEncounter(req, res, next){
      next({status:400, error: `Unable to find specified patient's history`})
   }
 }
-//
-// router.get('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.getEncounter)
-// router.post('/:patient_id/encounters', auth.isAuthorized, ctrl.createEncounter)
-// router.patch('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.updateEncounter)
-// router.delete('/:patient_id/encounters/:encounter_id', auth.isAuthorized, ctrl.deleteEncounter)
+
+async function createEncounter(req, res, next){
+  try {
+    const patient_id = parseInt(req.params.patient_id)
+
+    const token = parseToken(req.headers.authorization)
+    const doctor_id = token.sub.id
+
+    const body = {
+      ...req.body,
+      patient_id,
+      doctor_id,
+      hx: {}
+    }
+    const response = await model.createEncounter(body)
+
+    res.status(201).json({"encounter": response})
+  } catch (e) {
+    next({status: 400, error: `Encounter could not be created`})
+  }
+}
+
+async function updateEncounter(req, res, next){
+  try{
+    const patient_id = parseInt(req.params.patient_id)
+    const encounter_id = req.params.encounter_id
+
+    const response = await model.updateEncounter(patient_id, encounter_id, req.body)
+
+    res.status(200).json({"encounter": response})
+  } catch (e){
+    next({status: 400, error: `Unable to update specified encounter`})
+  }
+}
+
+async function deleteEncounter(req, res, next){
+  try{
+    const patient_id = parseInt(req.params.patient_id)
+    const encounter_id = req.params.encounter_id
+
+    const response = await model.deleteEncounter(patient_id, encounter_id)
+
+    res.status(200).json({"encounter": response})
+  } catch (e){
+    console.log(e)
+    next({status: 400, error: `Unable to delete specified encounter`})
+  }
+}
 
 module.exports = {
   index,
@@ -102,5 +145,8 @@ module.exports = {
   updatePt,
   deletePt,
   addPtToDoc,
-  getEncounter
+  getEncounter,
+  createEncounter,
+  updateEncounter,
+  deleteEncounter
 }

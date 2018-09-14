@@ -74,17 +74,65 @@ function addPtToDoc(body){
     })
   }
 
-  function getEncounter(patient_id, encounter_id){
+  function isPtsEncounter(patient_id, encounter_id){
     return db('encounters')
       .where({id: encounter_id})
       .then(([encounter]) => {
-        console.log(encounter, patient_id, encounter.patient_id)
         if(encounter.patient_id===patient_id){
           return encounter
         } else {
-          throw new Error()
+          return false
         }
       })
+  }
+
+  async function getEncounter(patient_id, encounter_id){
+    const encounter = await isPtsEncounter(patient_id, encounter_id);
+
+    if(encounter){
+      return encounter
+    } else {
+      throw new Error()
+    }
+  }
+
+  function createEncounter (body) {
+    return db('encounters')
+      .insert(body)
+      .returning('*')
+      .then(([response]) => response)
+  }
+
+  async function updateEncounter(patient_id, encounter_id, body){
+    const encounter = await isPtsEncounter(patient_id, encounter_id);
+
+    if(encounter){
+      return db('encounters')
+        .update({
+          ...encounter,
+          ...body,
+          updated_at: new Date()
+        })
+        .where({id: encounter_id})
+        .returning('*')
+        .then(([resp]) => resp)
+    } else {
+      throw new Error()
+    }
+  }
+
+  async function deleteEncounter(patient_id, encounter_id){
+    const encounter = await isPtsEncounter(patient_id, encounter_id);
+
+    if(encounter){
+      return db('encounters')
+        .where({id: encounter_id})
+        .del()
+        .returning('*')
+        .then(([resp]) => resp)
+    } else {
+      throw new Error()
+    }
   }
 
 module.exports = {
@@ -94,5 +142,8 @@ module.exports = {
   updatePt,
   deletePt,
   addPtToDoc,
-  getEncounter
+  getEncounter,
+  createEncounter,
+  updateEncounter,
+  deleteEncounter
 }
