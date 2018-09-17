@@ -33,7 +33,6 @@ async function verify(req, res, next){
 
     res.json({ userId })
   } catch (e){
-    console.log(e)
     next({ status: 400, error: 'Token is invalid or expired'})
   }
 }

@@ -133,7 +133,6 @@ async function deleteEncounter(req, res, next){
 
     res.status(200).json({"encounter": response})
   } catch (e){
-    console.log(e)
     next({status: 400, error: `Unable to delete specified encounter`})
   }
 }
