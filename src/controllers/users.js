@@ -6,7 +6,7 @@ async function signup (req, res, next) {
     const response = await model.create(req.body)
     const token = auth.createToken(response.id)
 
-    res.status(201).json({ token })
+    res.status(201).json({ response, token })
   } catch (e) {
     next({ status: 400, error: `User could not be registered` })
   }
@@ -17,7 +17,7 @@ async function login (req, res, next) {
     const response = await model.login(req.body)
     const token = auth.createToken(response.id)
 
-    res.json({ token })
+    res.json({ response, token })
   } catch (e) {
     next({ status: 401, error: `Email or password is incorrect` })
   }
