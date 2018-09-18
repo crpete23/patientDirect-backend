@@ -5,9 +5,9 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('patients').insert([
-        {id: 1, first_name: 'Chris', last_name: 'Peterson', dob: '04/12/1992', sex: 'male'},
-        {id: 2, first_name: 'Maria', last_name: 'Peterson', dob: '05/19/1998', sex: 'female'},
-        {id: 3, first_name: 'Erik', last_name: 'Peterson', dob: '09/27/1996', sex: 'male'}
+        {id: 1, first_name: 'Chris', last_name: 'Peterson', dob: '1992/04/12', sex: 'male'},
+        {id: 2, first_name: 'Maria', last_name: 'Peterson', dob: '1998/05/19', sex: 'female'},
+        {id: 3, first_name: 'Erik', last_name: 'Peterson', dob: '1996/09/27', sex: 'male'}
       ])
     })
     .then(function () {
