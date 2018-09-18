@@ -34,7 +34,26 @@ async function getEncountersByDate(req, res, next){
   }
 }
 
+async function getEncounterById(req, res, next){
+  try{
+    const token = parseToken(req.headers.authorization)
+    const userId = token.sub.id
+
+    const dateString = req.params.date
+    const date = `${dateString.slice(0,4)}/${dateString.slice(4, 6)}/${dateString.slice(6)}`
+
+    const encounter_id = parseInt(req.params.encounter_id)
+
+    const [response] = await model.getEncounterById(encounter_id, date, userId)
+    res.status(200).json({"encounter": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to find specified encounter`})
+  }
+}
+
 module.exports = {
   getAll,
-  getEncountersByDate
+  getEncountersByDate,
+  getEncounterById
 }
