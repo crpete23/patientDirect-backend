@@ -135,6 +135,27 @@ function addPtToDoc(body){
     }
   }
 
+  function checkIn(first_name, last_name, dob, today){
+    return db('patients')
+      .where({
+        first_name,
+        last_name,
+        dob
+      })
+      .then(([patient]) => {
+        return db('encounters')
+          .where({
+            patient_id: patient.id,
+            date: today
+          })
+          .update({
+            checkedIn: true
+          })
+          .returning('*')
+          .then(([resp]) => resp)
+      })
+  }
+
 module.exports = {
   get,
   getEncounters,
@@ -145,5 +166,6 @@ module.exports = {
   getEncounter,
   createEncounter,
   updateEncounter,
-  deleteEncounter
+  deleteEncounter,
+  checkIn
 }

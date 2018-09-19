@@ -3,6 +3,23 @@ const model = require('../models/patients')
 const {parseToken} = require('../lib/auth')
 const resourceName = 'patient'
 
+async function checkIn(req, res, next) {
+  try {
+    const first_name = req.params.first_name.toLowerCase();
+    const last_name = req.params.last_name.toLowerCase();
+    const dobString = req.params.dob;
+    const dob = `${dobString.slice(0,4)}/${dobString.slice(4, 6)}/${dobString.slice(6)}`
+    const todayString = req.params.today;
+    const today = `${todayString.slice(0,4)}/${todayString.slice(4, 6)}/${todayString.slice(6)}`
+
+    const response = await model.checkIn(first_name, last_name, dob, today)
+    res.status(200).json({"encounter": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `There is no encounter today for this patient`})
+  }
+}
+
 async function index(req, res, next) {
   try {
     const token = parseToken(req.headers.authorization)
@@ -147,5 +164,6 @@ module.exports = {
   getEncounter,
   createEncounter,
   updateEncounter,
-  deleteEncounter
+  deleteEncounter,
+  checkIn
 }

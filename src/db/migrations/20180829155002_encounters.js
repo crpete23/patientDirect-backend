@@ -7,6 +7,7 @@ exports.up = function (knex, Promise) {
     table.foreign('doctor_id').references('doctors.id')
     table.string('date').notNullable()
     table.string('time').notNullable()
+    table.boolean('checkedIn').notNullable().defaultTo(false)
     table.json('hx').notNullable()
     table.timestamps(true, true)
   })
