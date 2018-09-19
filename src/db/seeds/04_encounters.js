@@ -71,11 +71,11 @@ exports.seed = function (knex, Promise) {
     {id:3, patient_id: 3, doctor_id: 1, date: '2018/08/30', time: '4:00 pm', hx:{}
     },
     {id:4, patient_id: 1, doctor_id: 1, date: '2018/09/19', time: '4:00 pm', hx:{}
-    }
+    },
     {id:5, patient_id: 1, doctor_id: 1, date: '2018/09/20', time: '4:00 pm', hx:{}
-    }
+    },
     {id:6, patient_id: 1, doctor_id: 1, date: '2018/09/21', time: '4:00 pm', hx:{}
-    }
+    },
     {id:7, patient_id: 1, doctor_id: 1, date: '2018/09/22', time: '4:00 pm', hx:{}
     }
   ])
