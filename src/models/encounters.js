@@ -7,12 +7,12 @@ function getAll(userId){
 }
 
 function getEncountersByDate(date, userId){
-  return db('encounters')
+  return db('patients')
+    .join('encounters', 'patients.id', '=', 'encounters.patient_id')
     .where({
       doctor_id: userId,
       date: date
     })
-    .join('patients', 'encounters.patient_id', '=', 'patients.id')
 }
 
 function getEncounterById(encounter_id, date, userId){
