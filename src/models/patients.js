@@ -97,6 +97,7 @@ function addPtToDoc(body){
           "encounters.id" : encounter.id
         })
         .select('encounters.id', 'first_name', 'last_name', 'patient_id', 'doctor_id', 'time', 'doc_first_name', 'doc_last_name', 'hx')
+        .then(([resp]) => resp)
     } else {
       throw new Error()
     }
