@@ -16,7 +16,6 @@ function getEncountersByDate(date, userId){
 }
 
 function getEncounterById(encounter_id, date, userId){
-  console.log(encounter_id, date, userId)
   return db('encounters')
     .where({
       "encounters.id": encounter_id,

@@ -39,8 +39,6 @@ async function getEncounterById(req, res, next){
     const token = parseToken(req.headers.authorization)
     const userId = token.sub.id
 
-    console.log(req.params)
-
     const dateString = req.params.date
     const date = `${dateString.slice(0,4)}/${dateString.slice(4, 6)}/${dateString.slice(6)}`
 

@@ -103,6 +103,7 @@ async function getEncounter(req, res, next){
 
     res.status(200).json({"encounter": response})
   } catch (e) {
+    console.log(e)
      next({status:400, error: `Unable to find specified patient's history`})
   }
 }

@@ -90,7 +90,13 @@ function addPtToDoc(body){
     const encounter = await isPtsEncounter(patient_id, encounter_id);
 
     if(encounter){
-      return encounter
+      return db('patients')
+         .join('encounters', 'patients.id', '=', 'encounters.patient_id')
+        .join('doctors', 'encounters.doctor_id', '=', 'doctors.id')
+        .where({
+          "encounters.id" : encounter.id
+        })
+        .select('encounters.id', 'first_name', 'last_name', 'patient_id', 'doctor_id', 'time', 'doc_first_name', 'doc_last_name', 'hx')
     } else {
       throw new Error()
     }
