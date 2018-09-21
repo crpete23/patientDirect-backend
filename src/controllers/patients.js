@@ -138,6 +138,7 @@ async function updateEncounter(req, res, next){
 
     res.status(200).json({"encounter": response})
   } catch (e){
+    console.log(e)
     next({status: 400, error: `Unable to update specified encounter`})
   }
 }
