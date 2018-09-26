@@ -5,7 +5,7 @@ async function getHpiCCKeys (req, res, next) {
   try{
     const doctor_id = req.params.doctor_id
 
-    const response = await model.getTemplates(doctor_id)
+    const response = await model.getHpiTemplates(doctor_id)
     const ccs = response.map(template => {
       return template.cc
     })
@@ -22,7 +22,7 @@ async function getHpiTemplate (req, res, next){
     const doctor_id = req.params.doctor_id
     const cc = req.params.cc
 
-    const response = await model.getTemplate(doctor_id, cc)
+    const response = await model.getHpiTemplate(doctor_id, cc)
     res.status(200).json({"template": response.template})
 
   } catch (e){
@@ -31,7 +31,20 @@ async function getHpiTemplate (req, res, next){
   }
 }
 
+async function getRosTemplate (req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+
+    const response = await model.getRosTemplate(doctor_id)
+    res.status(200).json({"template": response.template})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to find template for specified physician`})
+  }
+}
+
 module.exports = {
   getHpiCCKeys,
-  getHpiTemplate
+  getHpiTemplate,
+  getRosTemplate
 }
