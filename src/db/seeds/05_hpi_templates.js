@@ -158,6 +158,6 @@ label: `Briefly describe the context of your palpitations`
 ])
     })
     .then(function () {
-      return knex.raw(`SELECT setval('patients_id_seq', (SELECT MAX(id) FROM hpi_templates));`)
+      return knex.raw(`SELECT setval('hpi_templates_id_seq', (SELECT MAX(id) FROM hpi_templates));`)
     })
 }

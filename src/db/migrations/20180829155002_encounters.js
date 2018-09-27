@@ -4,7 +4,7 @@ exports.up = function (knex, Promise) {
     table.integer('patient_id').notNullable()
     table.foreign('patient_id').references('patients.id').onDelete('CASCADE')
     table.integer('doctor_id').notNullable()
-    table.foreign('doctor_id').references('doctors.id')
+    table.foreign('doctor_id').references('doctors.id').onDelete('CASCADE')
     table.string('date').notNullable()
     table.string('time').notNullable()
     table.boolean('checkedIn').notNullable().defaultTo(false)

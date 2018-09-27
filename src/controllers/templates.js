@@ -43,8 +43,65 @@ async function getRosTemplate (req, res, next){
   }
 }
 
+async function createHpiTemplate(req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+
+    const response = await model.createHpiTemplate({...req.body}, doctor_id)
+
+    res.status(201).json({"template": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to create template`})
+  }
+}
+
+async function createRosTemplate(req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+
+    const response = await model.createRosTemplate({...req.body}, doctor_id)
+
+    res.status(201).json({"template": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to create template`})
+  }
+}
+
+async function updateHpiTemplate(req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+    const cc = req.params.cc
+
+    const response = await model.updateHpiTemplate({...req.body}, doctor_id, cc)
+
+    res.status(200).json({"template": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to update template`})
+  }
+}
+
+async function updateRosTemplate(req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+
+    const response = await model.updateRosTemplate({...req.body}, doctor_id)
+
+    res.status(200).json({"template": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to update template`})
+  }
+}
+
 module.exports = {
   getHpiCCKeys,
   getHpiTemplate,
-  getRosTemplate
+  getRosTemplate,
+  createHpiTemplate,
+  createRosTemplate,
+  updateHpiTemplate,
+  updateRosTemplate
 }

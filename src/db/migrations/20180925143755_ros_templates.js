@@ -1,7 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('ros_templates', table => {
     table.increments()
-    table.integer('doctor_id').notNullable()
+    table.integer('doctor_id').notNullable().unique()
     table.foreign('doctor_id').references('doctors.id').onDelete('CASCADE')
     table.json('template').notNullable()
     table.timestamps(true, true)

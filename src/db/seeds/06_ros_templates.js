@@ -20,10 +20,10 @@ exports.seed = function (knex, Promise) {
             epistaxis: false
           },
           Cardiovascular: {
-            cp: true, palpitations: false, dyspnea: true
+            cp: false, palpitations: false, dyspnea: false
           },
           Respiratory: {
-            sob: true,
+            sob: false,
             cough: false
           },
           GI: {
@@ -42,7 +42,7 @@ exports.seed = function (knex, Promise) {
           Neuro: {
             hxCVA: false,
             hxTIA: false,
-            headache: true,
+            headache: false,
             lightheadedness: false
           },
           Endocrine: {
@@ -55,6 +55,6 @@ exports.seed = function (knex, Promise) {
         }])
     })
     .then(function () {
-      return knex.raw(`SELECT setval('patients_id_seq', (SELECT MAX(id) FROM ros_templates));`)
+      return knex.raw(`SELECT setval('ros_templates_id_seq', (SELECT MAX(id) FROM ros_templates));`)
     })
 }
