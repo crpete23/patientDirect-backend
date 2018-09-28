@@ -69,6 +69,13 @@ function updateRosTemplate(body, doctor_id){
     })
 }
 
+function deleteHpiTemplate(doctor_id, cc){
+  return db('hpi_templates')
+    .where({doctor_id, cc})
+    .del()
+    .returning('*')
+    .then(([resp]) => resp)
+}
 
 module.exports = {
   getHpiTemplate,
@@ -77,5 +84,6 @@ module.exports = {
   createHpiTemplate,
   createRosTemplate,
   updateHpiTemplate,
-  updateRosTemplate
+  updateRosTemplate,
+  deleteHpiTemplate
 }

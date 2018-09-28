@@ -96,6 +96,20 @@ async function updateRosTemplate(req, res, next){
   }
 }
 
+async function deleteHpiTemplate(req, res, next){
+  try{
+    const doctor_id = req.params.doctor_id
+    const cc = req.params.cc
+
+    const response = await model.deleteHpiTemplate(doctor_id, cc)
+
+    res.status(200).json({"template": response})
+  } catch (e){
+    console.log(e)
+    next({status:400, error: `Unable to delete template`})
+  }
+}
+
 module.exports = {
   getHpiCCKeys,
   getHpiTemplate,
@@ -103,5 +117,6 @@ module.exports = {
   createHpiTemplate,
   createRosTemplate,
   updateHpiTemplate,
-  updateRosTemplate
+  updateRosTemplate,
+  deleteHpiTemplate
 }

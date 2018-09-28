@@ -12,8 +12,6 @@ router.post('/:doctor_id/ros', auth.isMyTemp, ctrl.createRosTemplate)
 router.patch('/:doctor_id/hpi/:cc', auth.isMyTemp, ctrl.updateHpiTemplate)
 router.patch('/:doctor_id/ros', auth.isMyTemp, ctrl.updateRosTemplate)
 
-// router.delete('/:doctor_id/hpi/:cc', auth.isMyTemp, ctrl.deleteHpiTemplate)
-// router.delete('/:doctor_id/ros/:id', auth.isMyTemp, ctrl.deleteRosTemplate)
-
+router.delete('/:doctor_id/hpi/:cc', auth.isMyTemp, ctrl.deleteHpiTemplate)
 
 module.exports = router
