@@ -5,7 +5,8 @@ exports.seed = function (knex, Promise) {
   return knex('encounters').del()
     .then(function () {
       // Inserts seed entries
-      return knex('encounters').insert([{id:1, patient_id: 1, doctor_id: 1, date: '2018/10/2', time: '11:00 am', hx:{}
+      return knex('encounters').insert([
+    {id:1, patient_id: 1, doctor_id: 1, date: '2018/10/02', time: '11:00 am', hx:{}
     },
     {id:2, patient_id: 2, doctor_id: 1, date: '2018/10/02', time: '10:00 am', hx:{}
     },
