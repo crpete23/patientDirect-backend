@@ -7,11 +7,11 @@ exports.seed = function (knex, Promise) {
       return knex('ros_templates').insert([
         {id: 1, doctor_id: 1, template:
           {
-  constitutional: {
+  Constitutional: {
             "fatigue": false, "fever": false,
             "unintentional weight loss": false
           },
-          eyes: {
+          Eyes: {
             "eye pain": false,
             "blurry vision": false
           },
@@ -26,24 +26,25 @@ exports.seed = function (knex, Promise) {
             "shortness of breath": false,
             "cough": false
           },
-          GI: {
+          Gastrointestinal: {
             "nausea": false,
             "vomiting": false,
             "hematochezia": false,
             "melena": false
           },
-          GU: {
+          Genitourinary: {
             "hematuria": false
           },
-          Musc: {
+          Musculoskeletal: {
             "myalgias": false,
             "joint pain": false
           },
-          Neuro: {
+          Neurological: {
             "history of CVA": false,
             "history of TIA": false,
             "headache": false,
-            "lightheadedness": false
+            "lightheadedness": false,
+            "syncope": false
           },
           Endocrine: {
             "diabetes": false
