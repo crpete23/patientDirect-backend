@@ -8,48 +8,48 @@ exports.seed = function (knex, Promise) {
         {id: 1, doctor_id: 1, template:
           {
   constitutional: {
-            fatigue: false, fever: false,
-            unintentionalWeightLoss: false
+            "fatigue": false, "fever": false,
+            "unintentional weight loss": false
           },
           eyes: {
-            eyePain: false,
-            blurryVision: false
+            "eye pain": false,
+            "blurry vision": false
           },
           ENT: {
-            soreThroat: false,
-            epistaxis: false
+            "sore throat": false,
+            "epistaxis": false
           },
           Cardiovascular: {
-            cp: false, palpitations: false, dyspnea: false
+            "chest pain": false, "palpitations": false, "dyspnea": false
           },
           Respiratory: {
-            sob: false,
-            cough: false
+            "shortness of breath": false,
+            "cough": false
           },
           GI: {
-            nausea: false,
-            vomiting: false,
-            hematochezia: false,
-            melena: false
+            "nausea": false,
+            "vomiting": false,
+            "hematochezia": false,
+            "melena": false
           },
           GU: {
-            hematuria: false
+            "hematuria": false
           },
           Musc: {
-            musclePain: false,
-            jointPain: false
+            "myalgias": false,
+            "joint pain": false
           },
           Neuro: {
-            hxCVA: false,
-            hxTIA: false,
-            headache: false,
-            lightheadedness: false
+            "history of CVA": false,
+            "history of TIA": false,
+            "headache": false,
+            "lightheadedness": false
           },
           Endocrine: {
-            dm: false
+            "diabetes": false
           },
           Hematologic: {
-            anticoagulants: false
+            "anticoagulant use": false
           }
         }
         }])
