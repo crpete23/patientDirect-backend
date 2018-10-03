@@ -9,7 +9,12 @@ exports.seed = function (knex, Promise) {
         {doctor_id: 3, patient_id: 1},
         {doctor_id: 1, patient_id: 2},
         {doctor_id: 3, patient_id: 3},
-        {doctor_id: 1, patient_id: 1}
+        {doctor_id: 1, patient_id: 1},
+        {doctor_id: 1, patient_id: 4},
+        {doctor_id: 1, patient_id: 5},
+        {doctor_id: 1, patient_id: 6},
+        {doctor_id: 1, patient_id: 7},
+        {doctor_id: 1, patient_id: 8}        
       ])
     })
 }
