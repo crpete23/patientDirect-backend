@@ -58,7 +58,7 @@ exports.seed = function(knex, Promise) {
         }
       },
       {
-        id: 1,
+        id: 2,
         doctor_id: 2,
         template: {
           Constitutional: {
