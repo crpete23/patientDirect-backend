@@ -12,7 +12,7 @@
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
     "dev": "run-all \"npm run dev-server\"",
-    "start": "nodemon src/app.js",
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repositiory": {
