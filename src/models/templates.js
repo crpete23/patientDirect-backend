@@ -1,4 +1,5 @@
 const db = require('../db')
+const temps = require('../starterTemplates/starterTemplates')
 
 function getHpiTemplate (doctor_id, cc){
   return db('hpi_templates')
@@ -77,6 +78,16 @@ function deleteHpiTemplate(doctor_id, cc){
     .then(([resp]) => resp)
 }
 
+function newUserHpiTemps(doctor_id){
+  return db('hpi_templates')
+    .insert([{...temps.cpTemp, doctor_id},{...temps.sobTemp, doctor_id}, {...temps.palpTemp, doctor_id}])
+}
+
+function newUserRosTemp(doctor_id){
+  return db('ros_templates')
+    .insert({...temps.rosTemp, doctor_id})
+}
+
 module.exports = {
   getHpiTemplate,
   getHpiTemplates,
@@ -85,5 +96,7 @@ module.exports = {
   createRosTemplate,
   updateHpiTemplate,
   updateRosTemplate,
-  deleteHpiTemplate
+  deleteHpiTemplate,
+  newUserHpiTemps,
+  newUserRosTemp
 }

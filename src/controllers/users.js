@@ -1,4 +1,5 @@
 const model = require('../models/users')
+const tempModel = require('../models/templates')
 const auth = require('../lib/auth')
 const {parseToken} = require('../lib/auth')
 
@@ -8,8 +9,12 @@ async function signup (req, res, next) {
     const token = auth.createToken(response.id)
     const userId = response.id
 
+    await tempModel.newUserHpiTemps(userId)
+    await tempModel.newUserRosTemp(userId)
+    
     res.status(201).json({ userId, token })
   } catch (e) {
+    console.log(e)
     next({ status: 400, error: `User could not be registered` })
   }
 }
