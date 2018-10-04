@@ -7,7 +7,7 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return knex('doctors').insert([
         {id: 1, doc_first_name: 'chris', doc_last_name: 'peterson', email: 'crpete23@gmail.com', password: hashSync('password')},
-        {id: 1, doc_first_name: 'sabrina', doc_last_name: 'shaheen', email: 'drsabrinashaheen@gmail.com', password: hashSync('password')}
+        {id: 2, doc_first_name: 'sabrina', doc_last_name: 'shaheen', email: 'drsabrinashaheen@gmail.com', password: hashSync('password')}
       ])
     })
     .then(function () {
