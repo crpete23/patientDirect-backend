@@ -37,7 +37,7 @@ exports.seed = function (knex, Promise) {
   },
   "alleviating factors": {
     type: 'check',
-    choices: ['nitroglycerin', 'stretching or massaging the area', 'exertion', 'pain medications'],
+    choices: ['nitroglycerin', 'rest', 'stretching or massaging the area', 'exertion', 'pain medications'],
     label: 'What, if anything, makes your symptoms better? (select all that apply)'
   },
   "exacerbating factors": {
@@ -140,7 +140,7 @@ label: 'What, if anything, makes your symptoms better? (select all that apply)'
 },
 "exacerbating factors": {
 type: 'check',
-choices: ['anxiety', 'exertion', 'over-eating', 'alcohol intake'],
+choices: ['anxiety', 'exertion', 'over-eating', 'alcohol intake', 'caffeine'],
 label: 'What, if anything, induces or makes your symptoms worse? (select all that apply)'
 },
 "associated symptoms": {

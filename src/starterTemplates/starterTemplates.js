@@ -60,7 +60,7 @@ const cpTemp = {
     "alleviating factors": {
       type: 'check',
       choices: [
-        'nitroglycerin', 'stretching or massaging the area', 'exertion', 'pain medications'
+        'nitroglycerin', 'rest', 'stretching or massaging the area', 'exertion', 'pain medications'
       ],
       label: 'What, if anything, makes your symptoms better? (select all that apply)'
     },
@@ -243,7 +243,7 @@ const palpTemp = {
     "exacerbating factors": {
       type: 'check',
       choices: [
-        'anxiety', 'exertion', 'over-eating', 'alcohol intake'
+        'anxiety', 'exertion', 'over-eating', 'alcohol intake', 'caffeine'
       ],
       label: 'What, if anything, induces or makes your symptoms worse? (select all that apply)'
     },
