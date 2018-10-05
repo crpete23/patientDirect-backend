@@ -59,7 +59,7 @@
 | --- | --- | --- | --- | --- |
 | check in | `patch` | https://patient-direct-backend.herokuapp.com/api/patients/:first_name/:last_name/:dob/:today | - | - |
 | update patient history | `patch` | https://patient-direct-backend.herokuapp.com/api/patients/:patient_id/encounters/:encounter_id | { hx:{} } | - |
-| get full encounter information | `get` | https://patient-direct-backend.herokuapp.com/api/patients/:patient_id/encounters/:encounter_id | - | - (will be secured) |
+| get full encounter information | `get` | https://patient-direct-backend.herokuapp.com/api/patients/:patient_id/encounters/:encounter_id | - | (will be secured) |
 
 ## Installation
 
