@@ -8,4 +8,4 @@
 
 1. `mv .env.sample .env`
 
-1. `createdb patientDirect_backend_dev && createdb patientDirect_backend_test`
+1. `createdb patient-direct-backend_dev && createdb patient-direct-backend_test`
