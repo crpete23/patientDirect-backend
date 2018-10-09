@@ -11,77 +11,7 @@ exports.seed = function(knex, Promise) {
         doctor_id: 1,
         date: '2018/10/09',
         time: '8:00 am',
-        "hx": {
-          "hpi": {
-            "cc": ["chest pain"],
-            "quality": "sharp",
-            "timing": "intermittent",
-            "severity": "10",
-            "duration": "several weeks",
-            "location": "central chest",
-            "alleviating factors": ["nitroglycerin"],
-            "exacerbating factors": ["exertion"],
-            "associated symptoms": [
-              "shortness of breath",
-              "diaphoresis (sweating)",
-              "nausea",
-              "vomitting",
-              "fatigue",
-              "dizziness/light headedness"
-            ],
-            "context": "Whenever I overexert"
-          },
-          "ros": {
-            "Constitutional": {
-              "fatigue": true,
-              "fever": false,
-              "unintentional weight loss": false
-            },
-            "Eyes": {
-              "eye pain": false,
-              "blurry vision": false
-            },
-            "ENT": {
-              "sore throat": false,
-              "epistaxis": false
-            },
-            "Cardiovascular": {
-              "chest pain": true,
-              "palpitations": false,
-              "dyspnea": true
-            },
-            "Respiratory": {
-              "shortness of breath": true,
-              "cough": false
-            },
-            "Gastrointestinal": {
-              "nausea": true,
-              "vomiting": false,
-              "hematochezia": false,
-              "melena": false
-            },
-            "Genitourinary": {
-              "hematuria": false
-            },
-            "Musculoskeletal": {
-              "myalgias": false,
-              "joint pain": false
-            },
-            "Neurological": {
-              "history of CVA": false,
-              "history of TIA": false,
-              "headache": false,
-              "lightheadedness": true,
-              "syncope": false
-            },
-            "Endocrine": {
-              "diabetes": true
-            },
-            "Hematologic": {
-              "anticoagulant use": false
-            }
-          }
-        }
+        "hx": {}
       }, {
         id: 2,
         patient_id: 2,
@@ -129,16 +59,9 @@ exports.seed = function(knex, Promise) {
         patient_id: 8,
         doctor_id: 1,
         date: '2018/10/09',
-        time: '3:00 pm',
-        hx: {}
-      },
-      {
-        id: 9,
-        patient_id: 1,
-        doctor_id: 1,
-        date: '2018/10/10',
-        time: '8:00 am',
-        "hx": {
+        time: '7:00 am',
+        hx: {
+          "checkedIn": true,
           "hpi": {
             "cc": ["chest pain"],
             "quality": "sharp",
@@ -209,6 +132,14 @@ exports.seed = function(knex, Promise) {
             }
           }
         }
+      },
+      {
+        id: 9,
+        patient_id: 1,
+        doctor_id: 1,
+        date: '2018/10/10',
+        time: '8:00 am',
+        "hx": {}
       }, {
         id: 10,
         patient_id: 2,
@@ -256,16 +187,9 @@ exports.seed = function(knex, Promise) {
         patient_id: 8,
         doctor_id: 1,
         date: '2018/10/10',
-        time: '3:00 pm',
-        hx: {}
-      },
-      {
-        id: 17,
-        patient_id: 1,
-        doctor_id: 1,
-        date: '2018/10/11',
-        time: '8:00 am',
-        "hx": {
+        time: '7:00 pm',
+        hx: {
+          "checkedIn": true,
           "hpi": {
             "cc": ["chest pain"],
             "quality": "sharp",
@@ -336,6 +260,14 @@ exports.seed = function(knex, Promise) {
             }
           }
         }
+      },
+      {
+        id: 17,
+        patient_id: 1,
+        doctor_id: 1,
+        date: '2018/10/11',
+        time: '8:00 am',
+        "hx": {}
       }, {
         id: 18,
         patient_id: 2,
@@ -383,8 +315,79 @@ exports.seed = function(knex, Promise) {
         patient_id: 8,
         doctor_id: 1,
         date: '2018/10/11',
-        time: '3:00 pm',
-        hx: {}
+        time: '7:00 am',
+        hx: {
+          "checkedIn": true,
+          "hpi": {
+            "cc": ["chest pain"],
+            "quality": "sharp",
+            "timing": "intermittent",
+            "severity": "10",
+            "duration": "several weeks",
+            "location": "central chest",
+            "alleviating factors": ["nitroglycerin"],
+            "exacerbating factors": ["exertion"],
+            "associated symptoms": [
+              "shortness of breath",
+              "diaphoresis (sweating)",
+              "nausea",
+              "vomitting",
+              "fatigue",
+              "dizziness/light headedness"
+            ],
+            "context": "Whenever I overexert"
+          },
+          "ros": {
+            "Constitutional": {
+              "fatigue": true,
+              "fever": false,
+              "unintentional weight loss": false
+            },
+            "Eyes": {
+              "eye pain": false,
+              "blurry vision": false
+            },
+            "ENT": {
+              "sore throat": false,
+              "epistaxis": false
+            },
+            "Cardiovascular": {
+              "chest pain": true,
+              "palpitations": false,
+              "dyspnea": true
+            },
+            "Respiratory": {
+              "shortness of breath": true,
+              "cough": false
+            },
+            "Gastrointestinal": {
+              "nausea": true,
+              "vomiting": false,
+              "hematochezia": false,
+              "melena": false
+            },
+            "Genitourinary": {
+              "hematuria": false
+            },
+            "Musculoskeletal": {
+              "myalgias": false,
+              "joint pain": false
+            },
+            "Neurological": {
+              "history of CVA": false,
+              "history of TIA": false,
+              "headache": false,
+              "lightheadedness": true,
+              "syncope": false
+            },
+            "Endocrine": {
+              "diabetes": true
+            },
+            "Hematologic": {
+              "anticoagulant use": false
+            }
+          }
+        }
       },
     ])
   }).then(function() {
