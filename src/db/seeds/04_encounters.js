@@ -60,8 +60,8 @@ exports.seed = function(knex, Promise) {
         doctor_id: 1,
         date: '2018/10/09',
         time: '7:00 am',
+        checkedIn: true,
         hx: {
-          "checkedIn": true,
           "hpi": {
             "cc": ["chest pain"],
             "quality": "sharp",
@@ -188,8 +188,8 @@ exports.seed = function(knex, Promise) {
         doctor_id: 1,
         date: '2018/10/10',
         time: '7:00 pm',
+        checkedIn: true,
         hx: {
-          "checkedIn": true,
           "hpi": {
             "cc": ["chest pain"],
             "quality": "sharp",
@@ -316,8 +316,8 @@ exports.seed = function(knex, Promise) {
         doctor_id: 1,
         date: '2018/10/11',
         time: '7:00 am',
+        checkedIn: true,
         hx: {
-          "checkedIn": true,
           "hpi": {
             "cc": ["chest pain"],
             "quality": "sharp",
