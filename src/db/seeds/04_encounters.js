@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
         id: 1,
         patient_id: 1,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/09',
         time: '11:00 am',
         "hx": {
           "hpi": {
@@ -86,68 +86,68 @@ exports.seed = function(knex, Promise) {
         id: 2,
         patient_id: 2,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/09',
         time: '10:00 am',
         hx: {}
       }, {
         id: 3,
         patient_id: 3,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/09',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 4,
         patient_id: 1,
         doctor_id: 1,
-        date: '2018/10/03',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 5,
-        patient_id: 1,
+        patient_id: 2,
         doctor_id: 2,
-        date: '2018/10/04',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 6,
-        patient_id: 1,
+        patient_id: 3,
         doctor_id: 1,
-        date: '2018/10/05',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 7,
-        patient_id: 1,
+        patient_id: 4,
         doctor_id: 1,
-        date: '2018/10/06',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 8,
-        patient_id: 1,
+        patient_id: 5,
         doctor_id: 1,
-        date: '2018/10/07',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 9,
-        patient_id: 1,
+        patient_id: 6,
         doctor_id: 1,
-        date: '2018/10/08',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 10,
-        patient_id: 1,
+        patient_id: 7,
         doctor_id: 1,
-        date: '2018/10/09',
+        date: '2018/10/10',
         time: '4:00 pm',
         hx: {}
       }, {
         id: 11,
-        patient_id: 1,
+        patient_id: 8,
         doctor_id: 1,
         date: '2018/10/10',
         time: '4:00 pm',
@@ -161,116 +161,108 @@ exports.seed = function(knex, Promise) {
         hx: {}
       }, {
         id: 13,
-        patient_id: 4,
+        patient_id: 2,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/11',
         time: '11:00 am',
         hx: {}
       }, {
         id: 14,
-        patient_id: 5,
+        patient_id: 3,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/11',
         time: '12:00 pm',
         hx: {}
       }, {
         id: 15,
-        patient_id: 6,
+        patient_id: 4,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/11',
         time: '1:00 pm',
         hx: {}
       }, {
         id: 16,
-        patient_id: 7,
+        patient_id: 5,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/11',
         time: '2:00 pm',
         hx: {}
       }, {
         id: 17,
-        patient_id: 8,
+        patient_id: 6,
         doctor_id: 1,
-        date: '2018/10/02',
+        date: '2018/10/11',
         time: '3:00 pm',
         hx: {}
       }, {
         id: 18,
-        patient_id: 4,
-        doctor_id: 2,
-        date: '2018/10/04',
+        patient_id: 7,
+        doctor_id: 1,
+        date: '2018/10/11',
         time: '11:00 am',
         hx: {}
       }, {
         id: 19,
-        patient_id: 5,
-        doctor_id: 2,
-        date: '2018/10/04',
+        patient_id: 8,
+        doctor_id: 1,
+        date: '2018/10/11',
         time: '12:00 pm',
         hx: {}
       }, {
         id: 20,
-        patient_id: 6,
-        doctor_id: 2,
-        date: '2018/10/04',
+        patient_id: 4,
+        doctor_id: 1,
+        date: '2018/10/09',
         time: '1:00 pm',
         hx: {}
       }, {
         id: 21,
-        patient_id: 7,
-        doctor_id: 2,
-        date: '2018/10/04',
+        patient_id: 5,
+        doctor_id: 1,
+        date: '2018/10/09',
         time: '2:00 pm',
         hx: {}
       }, {
         id: 22,
-        patient_id: 8,
-        doctor_id: 2,
-        date: '2018/10/04',
+        patient_id: 6,
+        doctor_id: 1,
+        date: '2018/10/09',
         time: '3:00 pm',
         hx: {}
       }, {
         id: 23,
-        patient_id: 4,
-        doctor_id: 2,
-        date: '2018/10/11',
+        patient_id: 7,
+        doctor_id: 1,
+        date: '2018/10/09',
         time: '11:00 am',
         hx: {}
       }, {
         id: 24,
         patient_id: 5,
-        doctor_id: 2,
+        doctor_id: 1,
         date: '2018/10/11',
         time: '12:00 pm',
         hx: {}
       }, {
         id: 25,
         patient_id: 6,
-        doctor_id: 2,
+        doctor_id: 1,
         date: '2018/10/11',
         time: '1:00 pm',
         hx: {}
       }, {
         id: 26,
         patient_id: 7,
-        doctor_id: 2,
+        doctor_id: 1,
         date: '2018/10/11',
         time: '2:00 pm',
         hx: {}
       }, {
         id: 27,
         patient_id: 8,
-        doctor_id: 2,
+        doctor_id: 1,
         date: '2018/10/11',
         time: '3:00 pm',
-        hx: {}
-      },
-      {
-        id: 28,
-        patient_id: 1,
-        doctor_id: 2,
-        date: '2018/10/11',
-        time: '8:30 am',
         hx: {}
       }
     ])
