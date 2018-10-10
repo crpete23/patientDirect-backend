@@ -293,6 +293,7 @@ const rosTemp = {
       "cough": false
     },
     Gastrointestinal: {
+      "abdominal pain": false,
       "nausea": false,
       "vomiting": false,
       "hematochezia": false,

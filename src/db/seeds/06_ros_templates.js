@@ -30,6 +30,7 @@ exports.seed = function(knex, Promise) {
             "cough": false
           },
           Gastrointestinal: {
+            "abdominal pain": false,
             "nausea": false,
             "vomiting": false,
             "hematochezia": false,
@@ -84,6 +85,7 @@ exports.seed = function(knex, Promise) {
             "cough": false
           },
           Gastrointestinal: {
+            "abdominal pain": false,
             "nausea": false,
             "vomiting": false,
             "hematochezia": false,
