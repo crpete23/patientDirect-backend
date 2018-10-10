@@ -187,7 +187,7 @@ exports.seed = function(knex, Promise) {
         patient_id: 8,
         doctor_id: 1,
         date: '2018/10/10',
-        time: '7:00 pm',
+        time: '7:00 am',
         checkedIn: true,
         hx: {
           "hpi": {
