@@ -11,19 +11,21 @@ function signup (req, res, next) {
     }
 
     const user = model.create(newUser)
+    .then((res)=>{
+      tempModel.newUserHpiTemps(res.id)
+      return res
+      })
+      .then((res)=>{
+        tempModel.newUserRosTemp(res.id)
+        return res
+      })
 
     const token = user
     .then((res)=>{
       return auth.createToken(res.id)
     })
 
-    const createTemps = user
-    .then((res)=>{
-      tempModel.newUserHpiTemps(res.id)
-      tempModel.newUserRosTemp(res.id)
-    })
-
-    return Promise.all([user, token, createTemps])
+    return Promise.all([user, token])
     .then(([newUser, token])=>{
       const userId = newUser.id
       res.status(201).json({userId, token})
