@@ -13,7 +13,7 @@
     "seed": "knex seed:run",
     "dev": "run-all \"npm run dev-server\"",
     "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "repositiory": {
     "type": "git",
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "dotenv": "^6.0.0",
+    "jasmine": "^3.2.0",
     "nodemon": "^1.18.3",
     "run-all": "^1.0.1"
   }
