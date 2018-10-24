@@ -3,21 +3,31 @@ const tempModel = require('../models/templates')
 const auth = require('../lib/auth')
 const {parseToken} = require('../lib/auth')
 
-async function signup (req, res, next) {
+function signup (req, res, next) {
   try {
     const newUser = req.body
     if(!newUser.doc_first_name || !newUser.doc_last_name || !newUser.email || !newUser.password ) {
       throw new Error("Missing User Signup Information")
     }
 
-    const response = await model.create(newUser)
-    const token = auth.createToken(response.id)
-    const userId = response.id
+    const user = model.create(newUser)
 
-    await tempModel.newUserHpiTemps(userId)
-    await tempModel.newUserRosTemp(userId)
+    const token = user
+    .then((res)=>{
+      return auth.createToken(res.id)
+    })
 
-    res.status(201).json({ userId, token })
+    const createTemps = user
+    .then((res)=>{
+      tempModel.newUserHpiTemps(res.id)
+      tempModel.newUserRosTemp(res.id)
+    })
+
+    return Promise.all([user, token, createTemps])
+    .then(([newUser, token])=>{
+      const userId = newUser.id
+      res.status(201).json({userId, token})
+    })
   } catch (e) {
     console.log(e)
     next({ status: 400, error: `User could not be registered` })
